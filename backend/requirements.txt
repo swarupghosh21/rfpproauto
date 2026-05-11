@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+openai
+google-generativeai
+langgraph
+PyPDF2
+boto3
+python-multipart
+sqlalchemy
+psycopg2-binary
+python-docx
+pdfminer.six
+python-dotenv
+numpy<2
+sentence-transformers==2.6.1
+transformers==4.41.0
+faiss-cpu

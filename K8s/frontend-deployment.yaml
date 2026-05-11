@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rfp-frontend
+  labels:
+    app: rfp-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rfp-frontend
+  template:
+    metadata:
+      labels:
+        app: rfp-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: asia-south1-docker.pkg.dev/rfpintplatform/rfp-repo/frontend:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "300m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
